@@ -19,6 +19,7 @@ namespace NewCore.Data.Context
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Policy> Policies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,18 +37,14 @@ namespace NewCore.Data.Context
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.Property(e => e.CustomerId).ValueGeneratedNever();
+            });
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(50);
+            modelBuilder.Entity<Policy>(entity =>
+            {
+                entity.HasKey(e => e.CustomerId)
+                    .HasName("PK__Policy__A4AE64D8EC24C72E");
 
-                entity.Property(e => e.Location)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.CustomerId).ValueGeneratedNever();
             });
 
             OnModelCreatingPartial(modelBuilder);
