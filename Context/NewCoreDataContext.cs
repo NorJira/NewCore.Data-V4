@@ -36,15 +36,13 @@ namespace NewCore.Data.Context
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.Property(e => e.CustomerId).ValueGeneratedNever();
+                entity.Property(e => e.CustomerRef).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<Policy>(entity =>
             {
-                entity.HasKey(e => e.CustomerId)
-                    .HasName("PK__Policy__A4AE64D8EC24C72E");
-
-                entity.Property(e => e.CustomerId).ValueGeneratedNever();
+                entity.HasKey(e => e.PolRef)
+                    .HasName("PK__Policy__EF4EC41ADABA8C87");
             });
 
             OnModelCreatingPartial(modelBuilder);

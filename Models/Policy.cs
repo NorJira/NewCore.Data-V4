@@ -11,7 +11,8 @@ namespace NewCore.Data.Models
     [Table("Policy")]
     public partial class Policy
     {
-        public int Id { get; set; }
+        [Key]
+        public int PolRef { get; set; }
         [Required]
         [StringLength(15)]
         public string PolId { get; set; }
@@ -22,8 +23,9 @@ namespace NewCore.Data.Models
         public DateTime PolCommDt { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime PolExpryDate { get; set; }
-        [Key]
-        public int CustomerId { get; set; }
+        [Required]
+        [StringLength(15)]
+        public string CustomerId { get; set; }
         [Required]
         [StringLength(15)]
         public string PlanId { get; set; }

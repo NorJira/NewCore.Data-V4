@@ -11,7 +11,9 @@ namespace NewCore.Data.Models
     public partial class Customer
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int CustomerRef { get; set; }
+        [StringLength(15)]
+        public string CustomerId { get; set; }
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
