@@ -10,8 +10,8 @@ namespace NewCore.Data.Models
 {
     public partial class Customer
     {
-        [Key]
         public int CustomerRef { get; set; }
+        [Key]
         [StringLength(15)]
         public string CustomerId { get; set; }
         [Required]
