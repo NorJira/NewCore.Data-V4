@@ -11,9 +11,7 @@ namespace NewCore.Data.Context
 {
     public partial class NewCoreDataContext : DbContext
     {
-        public NewCoreDataContext()
-        {
-        }
+        public NewCoreDataContext() : base() { }
 
         public NewCoreDataContext(DbContextOptions<NewCoreDataContext> options)
             : base(options)
